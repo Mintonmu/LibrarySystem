@@ -105,4 +105,21 @@ public class Book implements Serializable {
     public void setNumber(int number) {
         this.number = number;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "book_id=" + book_id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", publish='" + publish + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", introduction='" + introduction + '\'' +
+                ", language='" + language + '\'' +
+                ", price=" + price +
+                ", pub_date=" + pub_date +
+                ", class_id=" + class_id +
+                ", number=" + number +
+                '}';
+    }
 }

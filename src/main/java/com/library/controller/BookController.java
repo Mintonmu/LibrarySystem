@@ -1,9 +1,11 @@
 package com.library.controller;
 
 import com.library.bean.Book;
+import com.library.bean.Comment;
 import com.library.bean.Lend;
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
+import com.library.service.CommentService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ public class BookController {
     private BookService bookService;
     @Autowired
     private LendService lendService;
+    @Autowired
+    private CommentService commentService;
 
     private Date getDate(String pubstr) {
         try {
@@ -116,8 +120,11 @@ public class BookController {
     public ModelAndView readerBookDetail(HttpServletRequest request) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
         Book book = bookService.getBook(bookId);
+        ArrayList<Comment> comment = commentService.getComment(bookId);
         ModelAndView modelAndView = new ModelAndView("reader_book_detail");
         modelAndView.addObject("detail", book);
+        modelAndView.addObject("comments", comment);
+
         return modelAndView;
     }
 

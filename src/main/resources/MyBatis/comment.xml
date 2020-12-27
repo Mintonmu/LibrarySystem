@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.dao.CommentDao">
+    <insert id="addComment" parameterType="com.library.bean.Comment">
+        insert into comments values
+        (null, #{reader_id}, #{book_id}, #{comment}, #{time})
+    </insert>
+    <select id="getAllComments" resultType="com.library.bean.Comment">
+        select * from comments
+    </select>
+    <select id="getComment" resultType="com.library.bean.Comment" parameterType="long">
+        select * from comments where book_id = #{book_id}
+    </select>
+    <delete id="deleteComment" parameterType="long">
+        delete from comments where id = #{id}
+    </delete>
+</mapper>

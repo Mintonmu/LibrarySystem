@@ -120,7 +120,7 @@
                 <version>3.3.0</version>
                 <configuration>
                     <webappDirectory>src/main/webapp</webappDirectory>
-                    <outputDirectory>/var/lib/tomcat9/webapps</outputDirectory>
+                    <outputDirectory>D:\\Development\\apache-tomcat-9.0.41\\webapps</outputDirectory>
                     <warName>library</warName>
                 </configuration>
             </plugin>
